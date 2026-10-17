@@ -1,2 +1,671 @@
-# postikry
-My secret digital gift
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postikri ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #ff7eb6;
+  --light: #ffd7e9;
+  --black: #080808;
+  --card: #141014;
+  --silver: #d9d4dd;
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at top, #321426 0%, #100b10 42%, #050505 100%);
+  font-family: 'Cairo', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.spark {
+  position: absolute;
+  bottom: -30px;
+  animation: rise 5s linear forwards;
+  opacity: 0;
+  font-size: 20px;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: .9; }
+  100% { transform: translateY(-110vh) rotate(300deg); opacity: 0; }
+}
+
+.gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.gate-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 34px 23px;
+  border: 1px solid #ff7eb655;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #21141d, #0c0a0c);
+  box-shadow: 0 0 45px #ff4e9a16;
+}
+
+.eyebrow {
+  color: var(--pink);
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.prank {
+  font-size: clamp(25px, 6vw, 36px);
+  font-weight: 800;
+  color: var(--light);
+  margin: 20px 0 10px;
+  text-shadow: 0 0 25px #ff6eb4;
+}
+
+.gate-card p {
+  color: #c7bbc4;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  margin: 13px 0;
+  border-radius: 14px;
+  border: 1px solid #ffffff26;
+  outline: none;
+  background: #080708;
+  color: white;
+  text-align: center;
+  font-size: 16px;
+}
+
+input:focus {
+  border-color: var(--pink);
+}
+
+.main-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  color: #190b13;
+  background: linear-gradient(135deg, #ffd5e7, #ff75b4);
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 5px 24px #ff5ba533;
+  transition: .2s;
+}
+
+.main-btn:active {
+  transform: scale(.97);
+}
+
+.error {
+  color: #ff9fbd;
+  min-height: 24px;
+  font-size: 13px;
+}
+
+#site {
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  padding: 24px 18px 10px;
+  text-align: center;
+}
+
+.logo {
+  color: var(--light);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+header .welcome {
+  color: var(--silver);
+  margin: 9px 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 15px 12px;
+}
+
+nav a {
+  border: 1px solid #ffffff1c;
+  background: #ffffff08;
+  border-radius: 30px;
+  padding: 7px 13px;
+  font-size: 12px;
+  color: #f4dbe7;
+}
+
+nav a:hover {
+  border-color: var(--pink);
+}
+
+section {
+  width: min(900px, 92%);
+  margin: 25px auto;
+  padding: 25px 20px;
+  border: 1px solid #ffffff12;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #171116ee, #0c0b0cee);
+  box-shadow: 0 15px 40px #0005;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--light);
+  font-size: 23px;
+  margin: 0 0 9px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #bcb0ba;
+  font-size: 13px;
+  line-height: 2;
+  margin: 0 auto 22px;
+}
+
+.intro {
+  text-align: center;
+  padding: 40px 18px;
+}
+
+.intro .big {
+  font-size: clamp(25px, 6vw, 42px);
+  font-weight: 800;
+  color: var(--light);
+  text-shadow: 0 0 25px #ff70ae35;
+}
+
+.intro p {
+  color: #e4d7df;
+  line-height: 2;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid #ff7eb64a;
+  border-radius: 40px;
+  padding: 6px 15px;
+  color: var(--pink);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 15px;
+}
+
+.memory {
+  position: relative;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid #ff7eb625;
+  background: #ffffff05;
+  transition: .25s;
+}
+
+.memory:hover {
+  border-color: #ff7eb680;
+  transform: translateY(-2px);
+}
+
+.memory-date {
+  color: var(--pink);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.memory h3 {
+  margin: 3px 0 8px;
+  font-size: 18px;
+  color: #fff0f7;
+}
+
+.memory p {
+  color: #cfc1cc;
+  line-height: 1.9;
+  margin: 0;
+  font-size: 14px;
+}
+
+.birthday {
+  text-align: center;
+  border-color: #ff7eb655;
+  background: linear-gradient(135deg, #28131f, #100d11);
+}
+
+.birthday h3 {
+  font-size: 22px;
+}
+
+.music-card {
+  border: 1px solid #ff7eb64d;
+  border-radius: 22px;
+  padding: 17px;
+  background: linear-gradient(145deg, #25121e, #100d11);
+}
+
+.music-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.album-art {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  border-radius: 17px;
+  display: grid;
+  place-items: center;
+  font-size: 33px;
+  background: radial-gradient(circle at top left, #ff9ac7, #7b2858 55%, #171017);
+  box-shadow: 0 0 25px #ff5da533;
+}
+
+.track-info {
+  min-width: 0;
+}
+
+.track-info h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.track-info p {
+  margin: 0;
+  color: #c7b5c2;
+  font-size: 13px;
+}
+
+.spotify-label {
+  color: #ff9dc8;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-top: 7px;
+}
+
+.player-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #050505;
+  aspect-ratio: 16 / 9;
+}
+
+.player-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.music-note {
+  color: #d8c8d2;
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 12px 0 0;
+}
+
+.letter-box {
+  text-align: center;
+}
+
+.letter-cover {
+  border: 1px solid #ff7eb64a;
+  border-radius: 20px;
+  padding: 26px 16px;
+  background: linear-gradient(145deg, #291522, #100b10);
+}
+
+.letter-cover .heart {
+  font-size: 40px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.letter-cover p {
+  color: #e6d5e0;
+}
+
+#letter {
+  margin-top: 20px;
+  padding: 22px 17px;
+  border-radius: 18px;
+  border: 1px solid #ff7eb633;
+  background: #090809;
+  text-align: right;
+}
+
+.letter-text {
+  white-space: pre-line;
+  line-height: 2.15;
+  font-size: 15px;
+  color: #f3e7ee;
+  overflow-wrap: anywhere;
+}
+
+.letter-text::first-line {
+  color: var(--light);
+  font-weight: 800;
+}
+
+.center {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  color: #a99aa5;
+  padding: 30px 16px 45px;
+  font-size: 12px;
+}
+
+footer span {
+  color: var(--pink);
+}
+
+@media (min-width: 650px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .birthday {
+    grid-column: 1 / -1;
+  }
+}
+</style>
+</head>
+
+<body>
+<div id="sparkles"></div>
+
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="eyebrow">A LITTLE SURPRISE FOR YOU ♡</div>
+    <div class="prank">بِخ .. إتخض ي حبيبي إتخضضض 😈</div>
+    <p>كنت مستنياك تدخل يا تنح يا كيوت 🖤</p>
+    <p>بس الأول… كلمة السر يا باشا 😌</p>
+
+    <form id="passwordForm">
+      <input id="password" type="password" placeholder="كلمة السر..." autocomplete="off">
+      <button class="main-btn" type="submit">افتح هديتك 🖤</button>
+    </form>
+    <div class="error" id="error"></div>
+  </div>
+</div>
+
+<div id="site" class="hidden">
+  <header>
+    <div class="logo">POSTIKRI ♡</div>
+    <p class="welcome">أهو دخلت يا تنح يا كيوت 😌🖤</p>
+    <span class="pill">MADE JUST FOR YOU</span>
+  </header>
+
+  <nav>
+    <a href="#home">البداية</a>
+    <a href="#story">حكايتنا</a>
+    <a href="#music">أغنيتنا 🎧</a>
+    <a href="#letterSection">رسالتك 💌</a>
+  </nav>
+
+  <main>
+    <section id="home" class="intro">
+      <div class="big">أجمد وأروع وأفخم حاجة ممكن تشوفها ف حياتك😌</div>
+      <p>كل تاريخ هنا مهم جدا حقيقي بالنسبالي وليك كمان بالعافية ياروحي مش باخد رأيك😘</p>
+      <div class="pill">YOU + ME · OUR LITTLE UNIVERSE</div>
+    </section>
+
+    <section id="story">
+      <h2 class="section-title">حكايتنا 🖤</h2>
+      <p class="section-subtitle">كل تاريخ حكاية من حكاياتنا… وكل ذكرى ليها مكانها.</p>
+
+      <div class="timeline">
+        <article class="memory">
+          <div class="memory-date">سنة 2018 · البداية</div>
+          <h3>أول مرة اتقابلنا ♡</h3>
+          <p>بداية حكاية ماكنّاش نعرف وقتها إنها هتفضل ذكرى مميزة كده.</p>
+        </article>
+
+        <article class="memory">
+          <div class="memory-date">6 / 12 / 2022</div>
+          <h3>أول مرة اتكلمنا 💬</h3>
+          <p>أول كلام بينا… وتفصيلة صغيرة بقت جزء من حكايتنا.</p>
+        </article>
+
+        <article class="memory">
+          <div class="memory-date">30 / 3 / 2023 · الخميس</div>
+          <h3>اليوم اللي ارتبطنا فيه 🫶</h3>
+          <p>أول ذكرى مميزة بينا… يوم ليه مكانة خاصة في قلبي.</p>
+          <p style="margin-top:8px;color:#ffacd0">8 / 9 / 1444 هـ</p>
+        </article>
+
+        <article class="memory birthday">
+          <div class="memory-date">8 يناير 2010 🎂</div>
+          <h3>أهم يوم ف تاريخ البشرية كلها 🤩</h3>
+          <p>طبعا معروف ليه😋</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="music">
+      <h2 class="section-title">أغنيتنا 🎧</h2>
+      <p class="section-subtitle">شغّلتها مخصوص عشانك… اسمعها وإنت بتتفرج على هديتك ♡</p>
+
+      <div class="music-card">
+        <div class="music-top">
+          <div class="album-art">♡</div>
+          <div class="track-info">
+            <h3>قلبي دق دقة</h3>
+            <p>صابرين النجيلي</p>
+            <div class="spotify-label">♡ YOUR SPECIAL SONG</div>
+          </div>
+        </div>
+
+        <div class="player-frame" id="playerFrame">
+          <iframe
+            id="songPlayer"
+            title="قلبي دق دقة - صابرين النجيلي"
+            src="about:blank"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <p class="music-note">
+          لو الأغنية ما اشتغلتش لوحدها، دوس تشغيل من المشغّل اللي فوق 🎶
+          هتفضل جوه الهدية ومش هتحتاج تفتح صفحة يوتيوب منفصلة.
+        </p>
+      </div>
+    </section>
+
+    <section id="letterSection" class="letter-box">
+      <h2 class="section-title">رسالة مخصوص ليك 💌</h2>
+      <p class="section-subtitle">في كلام لازم تقراه بنفسك يا أستاذ 😌</p>
+
+      <div class="letter-cover">
+        <div class="heart">💌</div>
+        <p>رسالة صغيرة من قلبي ليك…</p>
+        <button class="main-btn" id="openLetter">افتح الرسالة يا تنح ♡</button>
+      </div>
+
+      <div id="letter" class="hidden">
+        <div class="letter-text">بوستيكرييي😚
+
+أنا حاليا متعصبة منك بصراحه بسبب حركاتك ال مستفزة دي مش تقولي حراكات اي إنتَ عارف نفسك كويس ي باشا😌
+
+واحد تنح بس كيوت وبحبك 😚😍
+
+وبااارد مووووت بجد 🙁
+
+بس بحبك بقا اعمل اي😔
+
+عايزة اعضك موووت بصراحه 🥲
+
+من حبي فيك صدقني والله مش هاكلك يعني😈
+
+بس كنت عايزة اقولك بجد انا بحبك وبحب كل التفاصيل بتاعتنا اللي تخصنا انا وإنت وبس.
+
+حتا لو بنتخانق كتير إنت اللي بارد ومستفز وبتعصبني بس بحبك برضو.
+
+متزعلش مني ي محمد بجد ع أي حاجة حقيقي حقك عليا والله لو زعلتك ف حاجة صدقني انا طيبة وهبلة اوي وبحبك ولو جيت بس صالحتني ب كلمة او اتنين صدقني هتصالح عادي ، بس الاكيد اني مش هنسا يعني 🫢
+
+بحبك يبطتي😚
+
+بحبك ي غنني😉
+
+بعشق امك ي واد😍
+
+بحبك يبوستيكري الغاللييي🫂🫂🫶🏼
+
+بحبك ي ارنوبي🤍☺️. انا عارفة انك بتدايق منها بس انت ارنوب بجد🙁
+
+بحبك ي ابو العيال😌
+
+عارفة والله الرسالة دي مش هتوصلك كل حاجة بس حاول تفهمني وتحسها🙂🫢
+
+بحبك بجد يا محمد بلاش تخليني زعلانه منك أو اشيل حاجة جويا منك عشان خاطري بلاش
+
+مش عايزة ابطل احبك بالطريقة دي ومش عايزة انساك 🫶🏼🫂</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    معمولة بحب وبشوية شقاوة <span>♡</span><br>
+    A tiny world made just for you.
+  </footer>
+</div>
+
+<script>
+const gate = document.getElementById('gate');
+const site = document.getElementById('site');
+const passwordForm = document.getElementById('passwordForm');
+const passwordInput = document.getElementById('password');
+const errorBox = document.getElementById('error');
+const songPlayer = document.getElementById('songPlayer');
+
+function loadSong() {
+  if (songPlayer.src === 'about:blank' || !songPlayer.src.includes('10QUc8OFGec')) {
+    songPlayer.src =
+      'https://www.youtube-nocookie.com/embed/10QUc8OFGec?autoplay=1&playsinline=1&rel=0';
+  }
+}
+
+passwordForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  if (passwordInput.value.trim().toLowerCase() === 'postikri') {
+    gate.classList.add('hidden');
+    site.classList.remove('hidden');
+
+    loadSong();
+    burst();
+    setTimeout(burst, 700);
+  } else {
+    errorBox.textContent = 'لأ يا باشا 😂 جرّب كلمة السر تاني.';
+    passwordInput.value = '';
+  }
+});
+
+document.getElementById('openLetter').addEventListener('click', function() {
+  const letter = document.getElementById('letter');
+  letter.classList.toggle('hidden');
+
+  if (!letter.classList.contains('hidden')) {
+    this.textContent = 'اقفل الرسالة 🖤';
+    burst();
+    setTimeout(function() {
+      letter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  } else {
+    this.textContent = 'افتح الرسالة يا تنح ♡';
+  }
+});
+
+function burst() {
+  const holder = document.getElementById('sparkles');
+  const symbols = ['♡', '💗', '✦', '✨', '💕', '⋆'];
+
+  for (let i = 0; i < 28; i++) {
+    const item = document.createElement('span');
+    item.className = 'spark';
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + '%';
+    item.style.animationDelay = Math.random() * 1.5 + 's';
+    item.style.animationDuration = (3 + Math.random() * 3) + 's';
+    item.style.color = Math.random() > 0.5 ? '#ff8fc4' : '#ffffff';
+    holder.appendChild(item);
+
+    setTimeout(function() {
+      item.remove();
+    }, 7000);
+  }
+}
+</script>
+</body>
+</html>
