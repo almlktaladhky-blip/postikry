@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090d">
+<title>Postikri ♡ هدية سرية</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg: #09090d;
+  --panel: #15131c;
+  --pink: #f0a9cb;
+  --silver: #dedbe7;
+  --muted: #aaa5b6;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  color: #f7f3fa;
+  background: radial-gradient(ellipse at top, #392239, #111018 40%, #09090d 80%);
+  text-align: center;
+  overflow-x: hidden;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 12px 5px;
+  background: #09090ded;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #ffffff18;
+}
+
+header a {
+  display: inline-block;
+  color: var(--silver);
+  text-decoration: none;
+  font-size: 12px;
+  margin: 5px 7px;
+}
+
+header a:hover { color: var(--pink); }
+
+section {
+  max-width: 800px;
+  margin: auto;
+  padding: 55px 17px;
+}
+
+.hero {
+  min-height: 78vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(30px, 7vw, 50px);
+  background: linear-gradient(100deg, white, var(--pink), #d7d5e5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h2 { color: var(--silver); }
+
+p { line-height: 2.1; }
+
+.sub {
+  color: var(--muted);
+  max-width: 550px;
+}
+
+.heart {
+  color: var(--pink);
+  font-size: 29px;
+  animation: pulse 1.8s infinite alternate;
+}
+
+@keyframes pulse {
+  to { transform: scale(1.15); text-shadow: 0 0 20px #f0a9cb99; }
+}
+
+.card {
+  width: 100%;
+  background: linear-gradient(145deg, #1c1823, #101016);
+  border: 1px solid #f0a9cb35;
+  border-radius: 23px;
+  padding: 25px;
+  margin: 20px auto;
+  box-shadow: 0 15px 40px #0005;
+}
+
+button, .btn {
+  display: inline-block;
+  border: 1px solid #f0a9cb70;
+  border-radius: 28px;
+  padding: 11px 22px;
+  margin: 7px;
+  background: linear-gradient(120deg, #d77eaa, #925783);
+  color: white;
+  text-decoration: none;
+  font: bold 14px 'Cairo', sans-serif;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: #ffffff09;
+  color: var(--silver);
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  margin: 10px 0;
+  border-radius: 14px;
+  border: 1px solid #f0a9cb55;
+  background: #09090d;
+  color: white;
+  font: inherit;
+  text-align: center;
+}
+
+.hidden { display: none !important; }
+
+#error { color: #ffb7cb; }
+
+.timeline {
+  position: relative;
+  margin: 30px 0;
+  padding-right: 25px;
+  text-align: right;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  bottom: 5px;
+  width: 2px;
+  background: linear-gradient(var(--pink), #ffffff15);
+}
+
+.memory {
+  position: relative;
+  background: #ffffff08;
+  border: 1px solid #ffffff18;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 18px 0;
+}
+
+.memory::before {
+  content: "♡";
+  position: absolute;
+  right: -28px;
+  top: 18px;
+  color: var(--pink);
+  font-size: 20px;
+}
+
+.date {
+  color: var(--pink);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.memory h3 { color: white; }
+
+.memory p { color: #c9c5d2; }
+
+.hijri {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.envelope {
+  font-size: 55px;
+  display: block;
+  margin: 10px;
+}
+
+.letter-body {
+  white-space: pre-line;
+  text-align: right;
+  line-height: 2.2;
+  font-size: 15px;
+  color: #f4eaf2;
+  background: #0b0a10;
+  border: 1px solid #f0a9cb35;
+  border-radius: 17px;
+  padding: 20px;
+  margin-top: 18px;
+  animation: reveal .7s ease;
+  overflow-wrap: anywhere;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.song-orb {
+  width: 90px;
+  height: 90px;
+  margin: 20px auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 35px;
+  background: radial-gradient(circle at 35% 30%, #f6cfe1, #9c5a8d 55%, #29202f);
+  box-shadow: 0 0 35px #d77eaa40;
+}
+
+.spark {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  animation: burst 1.6s ease-out forwards;
+  font-size: 20px;
+}
+
+@keyframes burst {
+  0% { opacity: 1; transform: translate(0,0) scale(.5); }
+  100% { opacity: 0; transform: translate(var(--x),var(--y)) scale(1.3); }
+}
+
+footer {
+  padding: 30px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 450px) {
+  section { padding: 40px 14px; }
+  .card { padding: 19px; }
+  .letter-body { font-size: 14px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home">البداية ♡</a>
+  <a href="#story">حكايتنا</a>
+  <a href="#letter">الرسالة</a>
+  <a href="#song">الأغنية</a>
+</header>
+
+<section id="home" class="hero">
+  <div class="heart">♡ ✦ ♡</div>
+  <p> A LITTLE SECRET FOR YOU </p>
+  <h1>بوستيكرييي 😚</h1>
+  <p class="sub">في حكايات صغيرة بتفضل كبيرة جوانا… ودي حكايتنا إحنا وبس. 🖤</p>
+
+  <div class="card" id="lock">
+    <h2>🔐 هدية سرية</h2>
+    <p class="sub">فاكر كلمة السر؟ اكتبها وافتح المفاجأة.</p>
+    <form id="passwordForm">
+      <input id="password" type="password" placeholder="كلمة السر هنا">
+      <button type="submit">افتح الهدية ♡</button>
+    </form>
+    <p id="error"></p>
+  </div>
+
+  <div id="welcome" class="hidden">
+    <p>أهو دخلت يا تنح يا كيوت 😌🖤</p>
+    <a class="btn" href="#story">نبدأ الحكاية ↓</a>
+  </div>
+</section>
+
+<main id="content" class="hidden">
+
+<section id="story">
+  <p class="date">OUR LITTLE TIMELINE</p>
+  <h2>حكايتنا الصغيرة ♡</h2>
+  <p class="sub">كل تاريخ هنا وراه حكاية، حتى لو مش فاكرين كل التفاصيل.</p>
+
+  <div class="timeline">
+
+    <article class="memory">
+      <div class="date">سنة 2018 · البداية</div>
+      <h3>🌷 أول مرة اتقابلنا</h3>
+      <p>مش فاكرة اليوم بالتحديد، بس بعض البدايات بتفضل في الذاكرة حتى من غير تاريخ.</p>
+    </article>
+
+    <article class="memory">
+      <div class="date">6 ديسمبر 2026 · أول كلام</div>
+      <h3>🎀 أول مرة اتكلمنا</h3>
+      <p>ومن هنا بدأت تفاصيل صغيرة تبقى حكاية تخصنا إحنا وبس. 😉</p>
+    </article>
+
+    <article class="memory">
+      <div class="date">30 مارس 2023</div>
+      <div class="hijri">8 رمضان 1444 هـ · الخميس</div>
+      <h3>💗 اليوم اللي ارتبطنا فيه</h3>
+      <p>ذكرى مميزة، واليوم اللي بقى ليه مكان مختلف في حكايتنا.</p>
+    </article>
+
+    <article class="memory">
+      <div class="date">8 يناير 2010 · اليوم الاستثنائي</div>
+      <h3>👑 اليوم العالمي للبشرية كلها</h3>
+      <p>أهم يوم في تاريخ البشرية كلها، من ساعة ما بدأت… حسب صاحبة الهدية طبعًا. 😌</p>
+    </article>
+
+  </div>
+</section>
+
+<section id="letter">
+  <p class="date">A LETTER FROM THE HEART</p>
+  <h2>رسالة مخصوص ليك 💌</h2>
+  <p class="sub">فيه جواب صغير مستنيك…</p>
+
+  <div class="card">
+    <span class="envelope">✉️</span>
+    <button id="openLetter" type="button">افتح جوابك يا بوستيكري 💌</button>
+
+    <div id="letterText" class="letter-body hidden">بوستيكرييي😚
+
+أنا حاليا متعصبة منك بصراحه بسبب حركاتك ال مستفزة دي مش تقولي حراكات اي إنتَ عارف نفسك كويس ي باشا😌
+
+واحد تنح بس كيوت وبحبك 😚😍
+
+وبااارد مووووت بجد 🙁
+
+بس بحبك بقا اعمل اي😔
+
+عايزة اعضك موووت بصراحه 🥲
+
+من حبي فيك صدقني والله مش هاكلك يعني😈
+
+بس كنت عايزة اقولك بجد انا بحبك وبحب كل التفاصيل بتاعتنا اللي تخصنا انا وإنت وبس.
+
+حتا لو بنتخانق كتير إنت اللي بارد ومستفز وبتعصبني بس بحبك برضو.
+
+متزعلش مني ي محمد بجد ع أي حاجة حقيقي حقك عليا والله لو زعلتك ف حاجة صدقني انا طيبة وهبلة اوي وبحبك ولو جيت بس صالحتني ب كلمة او اتنين صدقني هتصالح عادي ، بس الاكيد اني مش هنسا يعني 🫢
+
+بحبك يبطتي😚
+
+بحبك ي غنني😉
+
+بعشق امك ي واد😍
+
+بحبك يبوستيكري الغاللييي🫂🫂🫶🏼
+
+بحبك ي ارنوبي🤍☺️. انا عارفة انك بتدايق منها بس انت ارنوب بجد🙁
+
+بحبك ي ابو العيال😌
+
+عارفة والله الرسالة دي مش هتوصلك كل حاجة بس حاول تفهمني وتحسها🙂🫢
+
+بحبك بجد يا محمد بلاش تخليني زعلانه منك أو اشيل حاجة جويا منك عشان خاطري بلاش
+
+مش عايزة ابطل احبك بالطريقة دي ومش عايزة انساك 🫶🏼🫂</div>
+  </div>
+</section>
+
+<section id="song">
+  <p class="date">OUR SONG</p>
+  <h2>أغنيتنا 🎶</h2>
+
+  <div class="card">
+    <div class="song-orb">♫</div>
+    <h3>قلبي دق دقة</h3>
+    <p class="sub">الأغنية اللي اخترتيها مخصوص.</p>
+    <a class="btn" href="https://www.youtube.com/watch?v=10QUc8OFGec" target="_blank" rel="noopener noreferrer">شغّل أغنيتنا على YouTube ▶</a>
+    <p class="hijri">هتفتح الأغنية على يوتيوب، والتشغيل يحتاج إنترنت.</p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <div class="heart">✦ ♡ ✦</div>
+    <h2>وخلصت الحكاية؟</h2>
+    <p class="sub">لأ طبعًا… دي مجرد ذكرى جديدة تتحط وسط ذكرياتنا. 🖤</p>
+    <a class="btn secondary" href="#home">ارجع للبداية ↑</a>
+    <button type="button" id="finale">اعمل مفاجأة 🎆</button>
+  </div>
+</section>
+
+</main>
+
+<footer>صُنعت بحب وتفاصيل صغيرة ♡ · Postikri</footer>
+
+<script>
+document.getElementById('passwordForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const value = document.getElementById('password').value;
+
+  if (value === 'postikri') {
+    document.getElementById('lock').classList.add('hidden');
+    document.getElementById('welcome').classList.remove('hidden');
+    document.getElementById('content').classList.remove('hidden');
+    burstHearts(35);
+  } else {
+    document.getElementById('error').textContent =
+      'كلمة السر مش صحيحة، جرب تاني يا بوستيكري 💗';
+  }
+});
+
+document.getElementById('openLetter').addEventListener('click', function() {
+  const letter = document.getElementById('letterText');
+  letter.classList.toggle('hidden');
+
+  this.textContent = letter.classList.contains('hidden')
+    ? 'افتح جوابك يا بوستيكري 💌'
+    : 'اقفل الجواب ♡';
+
+  if (!letter.classList.contains('hidden')) burstHearts(25);
+});
+
+function burstHearts(count) {
+  const symbols = ['✦', '♡', '✧', '♥', '✨', '🎆'];
+
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span');
+    el.className = 'spark';
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+    el.style.left = (8 + Math.random() * 84) + 'vw';
+    el.style.top = (25 + Math.random() * 55) + 'vh';
+    el.style.setProperty('--x', (Math.random() * 180 - 90) + 'px');
+    el.style.setProperty('--y', (-70 - Math.random() * 180) + 'px');
+    el.style.animationDelay = (Math.random() * 0.45) + 's';
+
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 2300);
+  }
+}
+
+document.getElementById('finale').addEventListener('click', function() {
+  burstHearts(60);
+});
+</script>
+
+</body>
+</html>
