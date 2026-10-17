@@ -3,331 +3,558 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09090d">
-<title>Postikri ♡ هدية سرية</title>
+<title>Postikri ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap');
-
 :root {
-  --bg: #09090d;
-  --panel: #15131c;
-  --pink: #f0a9cb;
-  --silver: #dedbe7;
-  --muted: #aaa5b6;
+  --pink: #ff7eb6;
+  --light: #ffd7e9;
+  --black: #080808;
+  --card: #141014;
+  --silver: #d9d4dd;
 }
 
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at top, #321426 0%, #100b10 42%, #050505 100%);
   font-family: 'Cairo', sans-serif;
-  color: #f7f3fa;
-  background: radial-gradient(ellipse at top, #392239, #111018 40%, #09090d 80%);
-  text-align: center;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  padding: 12px 5px;
-  background: #09090ded;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid #ffffff18;
+button, input {
+  font-family: inherit;
 }
 
-header a {
-  display: inline-block;
-  color: var(--silver);
-  text-decoration: none;
-  font-size: 12px;
-  margin: 5px 7px;
-}
-
-header a:hover { color: var(--pink); }
-
-section {
-  max-width: 800px;
-  margin: auto;
-  padding: 55px 17px;
-}
-
-.hero {
-  min-height: 78vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  font-size: clamp(30px, 7vw, 50px);
-  background: linear-gradient(100deg, white, var(--pink), #d7d5e5);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-h2 { color: var(--silver); }
-
-p { line-height: 2.1; }
-
-.sub {
-  color: var(--muted);
-  max-width: 550px;
-}
-
-.heart {
-  color: var(--pink);
-  font-size: 29px;
-  animation: pulse 1.8s infinite alternate;
-}
-
-@keyframes pulse {
-  to { transform: scale(1.15); text-shadow: 0 0 20px #f0a9cb99; }
-}
-
-.card {
-  width: 100%;
-  background: linear-gradient(145deg, #1c1823, #101016);
-  border: 1px solid #f0a9cb35;
-  border-radius: 23px;
-  padding: 25px;
-  margin: 20px auto;
-  box-shadow: 0 15px 40px #0005;
-}
-
-button, .btn {
-  display: inline-block;
-  border: 1px solid #f0a9cb70;
-  border-radius: 28px;
-  padding: 11px 22px;
-  margin: 7px;
-  background: linear-gradient(120deg, #d77eaa, #925783);
-  color: white;
-  text-decoration: none;
-  font: bold 14px 'Cairo', sans-serif;
+button {
   cursor: pointer;
 }
 
-.btn.secondary {
-  background: #ffffff09;
-  color: var(--silver);
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.spark {
+  position: absolute;
+  bottom: -30px;
+  animation: rise 5s linear forwards;
+  opacity: 0;
+  font-size: 20px;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0) rotate(0); opacity: 0; }
+  15% { opacity: .9; }
+  100% { transform: translateY(-110vh) rotate(300deg); opacity: 0; }
+}
+
+.gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.gate-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 34px 23px;
+  border: 1px solid #ff7eb655;
+  border-radius: 28px;
+  background: linear-gradient(145deg, #21141d, #0c0a0c);
+  box-shadow: 0 0 45px #ff4e9a16;
+}
+
+.eyebrow {
+  color: var(--pink);
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.prank {
+  font-size: clamp(25px, 6vw, 36px);
+  font-weight: 800;
+  color: var(--light);
+  margin: 20px 0 10px;
+  text-shadow: 0 0 25px #ff6eb4;
+}
+
+.gate-card p {
+  color: #c7bbc4;
+  font-size: 14px;
 }
 
 input {
   width: 100%;
   padding: 13px;
-  margin: 10px 0;
+  margin: 13px 0;
   border-radius: 14px;
-  border: 1px solid #f0a9cb55;
-  background: #09090d;
+  border: 1px solid #ffffff26;
+  outline: none;
+  background: #080708;
   color: white;
-  font: inherit;
   text-align: center;
+  font-size: 16px;
 }
 
-.hidden { display: none !important; }
-
-#error { color: #ffb7cb; }
-
-.timeline {
-  position: relative;
-  margin: 30px 0;
-  padding-right: 25px;
-  text-align: right;
+input:focus {
+  border-color: var(--pink);
 }
 
-.timeline::before {
-  content: "";
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  bottom: 5px;
-  width: 2px;
-  background: linear-gradient(var(--pink), #ffffff15);
-}
-
-.memory {
-  position: relative;
-  background: #ffffff08;
-  border: 1px solid #ffffff18;
-  border-radius: 18px;
-  padding: 18px;
-  margin: 18px 0;
-}
-
-.memory::before {
-  content: "♡";
-  position: absolute;
-  right: -28px;
-  top: 18px;
-  color: var(--pink);
-  font-size: 20px;
-}
-
-.date {
-  color: var(--pink);
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.memory h3 { color: white; }
-
-.memory p { color: #c9c5d2; }
-
-.hijri {
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.envelope {
-  font-size: 55px;
-  display: block;
-  margin: 10px;
-}
-
-.letter-body {
-  white-space: pre-line;
-  text-align: right;
-  line-height: 2.2;
+.main-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  color: #190b13;
+  background: linear-gradient(135deg, #ffd5e7, #ff75b4);
   font-size: 15px;
-  color: #f4eaf2;
-  background: #0b0a10;
-  border: 1px solid #f0a9cb35;
-  border-radius: 17px;
-  padding: 20px;
-  margin-top: 18px;
-  animation: reveal .7s ease;
-  overflow-wrap: anywhere;
+  font-weight: 800;
+  box-shadow: 0 5px 24px #ff5ba533;
+  transition: .2s;
 }
 
-@keyframes reveal {
+.main-btn:active {
+  transform: scale(.97);
+}
+
+.error {
+  color: #ff9fbd;
+  min-height: 24px;
+  font-size: 13px;
+}
+
+#site {
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
   from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-.song-orb {
-  width: 90px;
-  height: 90px;
-  margin: 20px auto;
-  border-radius: 50%;
+header {
+  padding: 24px 18px 10px;
+  text-align: center;
+}
+
+.logo {
+  color: var(--light);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+header .welcome {
+  color: var(--silver);
+  margin: 9px 0;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 15px 12px;
+}
+
+nav a {
+  border: 1px solid #ffffff1c;
+  background: #ffffff08;
+  border-radius: 30px;
+  padding: 7px 13px;
+  font-size: 12px;
+  color: #f4dbe7;
+}
+
+nav a:hover {
+  border-color: var(--pink);
+}
+
+section {
+  width: min(900px, 92%);
+  margin: 25px auto;
+  padding: 25px 20px;
+  border: 1px solid #ffffff12;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #171116ee, #0c0b0cee);
+  box-shadow: 0 15px 40px #0005;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--light);
+  font-size: 23px;
+  margin: 0 0 9px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #bcb0ba;
+  font-size: 13px;
+  line-height: 2;
+  margin: 0 auto 22px;
+}
+
+.intro {
+  text-align: center;
+  padding: 40px 18px;
+}
+
+.intro .big {
+  font-size: clamp(25px, 6vw, 42px);
+  font-weight: 800;
+  color: var(--light);
+  text-shadow: 0 0 25px #ff70ae35;
+}
+
+.intro p {
+  color: #e4d7df;
+  line-height: 2;
+}
+
+.pill {
+  display: inline-block;
+  border: 1px solid #ff7eb64a;
+  border-radius: 40px;
+  padding: 6px 15px;
+  color: var(--pink);
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 15px;
+}
+
+.memory {
+  position: relative;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid #ff7eb625;
+  background: #ffffff05;
+  transition: .25s;
+}
+
+.memory:hover {
+  border-color: #ff7eb680;
+  transform: translateY(-2px);
+}
+
+.memory-date {
+  color: var(--pink);
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.memory h3 {
+  margin: 3px 0 8px;
+  font-size: 18px;
+  color: #fff0f7;
+}
+
+.memory p {
+  color: #cfc1cc;
+  line-height: 1.9;
+  margin: 0;
+  font-size: 14px;
+}
+
+.birthday {
+  text-align: center;
+  border-color: #ff7eb655;
+  background: linear-gradient(135deg, #28131f, #100d11);
+}
+
+.birthday h3 {
+  font-size: 22px;
+}
+
+.music-card {
+  border: 1px solid #ff7eb64d;
+  border-radius: 22px;
+  padding: 17px;
+  background: linear-gradient(145deg, #25121e, #100d11);
+}
+
+.music-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.album-art {
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  border-radius: 17px;
   display: grid;
   place-items: center;
-  font-size: 35px;
-  background: radial-gradient(circle at 35% 30%, #f6cfe1, #9c5a8d 55%, #29202f);
-  box-shadow: 0 0 35px #d77eaa40;
+  font-size: 33px;
+  background: radial-gradient(circle at top left, #ff9ac7, #7b2858 55%, #171017);
+  box-shadow: 0 0 25px #ff5da533;
 }
 
-.spark {
-  position: fixed;
-  z-index: 50;
-  pointer-events: none;
-  animation: burst 1.6s ease-out forwards;
-  font-size: 20px;
+.track-info {
+  min-width: 0;
 }
 
-@keyframes burst {
-  0% { opacity: 1; transform: translate(0,0) scale(.5); }
-  100% { opacity: 0; transform: translate(var(--x),var(--y)) scale(1.3); }
+.track-info h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+
+.track-info p {
+  margin: 0;
+  color: #c7b5c2;
+  font-size: 13px;
+}
+
+.spotify-label {
+  color: #ff9dc8;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-top: 7px;
+}
+
+.player-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #050505;
+  aspect-ratio: 16 / 9;
+}
+
+.player-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: absolute;
+  inset: 0;
+}
+
+.music-note {
+  color: #d8c8d2;
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 12px 0 0;
+}
+
+.letter-box {
+  text-align: center;
+}
+
+.letter-cover {
+  border: 1px solid #ff7eb64a;
+  border-radius: 20px;
+  padding: 26px 16px;
+  background: linear-gradient(145deg, #291522, #100b10);
+}
+
+.letter-cover .heart {
+  font-size: 40px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.letter-cover p {
+  color: #e6d5e0;
+}
+
+#letter {
+  margin-top: 20px;
+  padding: 22px 17px;
+  border-radius: 18px;
+  border: 1px solid #ff7eb633;
+  background: #090809;
+  text-align: right;
+}
+
+.letter-text {
+  white-space: pre-line;
+  line-height: 2.15;
+  font-size: 15px;
+  color: #f3e7ee;
+  overflow-wrap: anywhere;
+}
+
+.letter-text::first-line {
+  color: var(--light);
+  font-weight: 800;
+}
+
+.center {
+  text-align: center;
 }
 
 footer {
-  padding: 30px;
-  color: var(--muted);
+  text-align: center;
+  color: #a99aa5;
+  padding: 30px 16px 45px;
   font-size: 12px;
 }
 
-@media (max-width: 450px) {
-  section { padding: 40px 14px; }
-  .card { padding: 19px; }
-  .letter-body { font-size: 14px; }
+footer span {
+  color: var(--pink);
+}
+
+@media (min-width: 650px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .birthday {
+    grid-column: 1 / -1;
+  }
 }
 </style>
 </head>
 
 <body>
+<div id="sparkles"></div>
 
-<header>
-  <a href="#home">البداية ♡</a>
-  <a href="#story">حكايتنا</a>
-  <a href="#letter">الرسالة</a>
-  <a href="#song">الأغنية</a>
-</header>
+<div id="gate" class="gate">
+  <div class="gate-card">
+    <div class="eyebrow">A LITTLE SURPRISE FOR YOU ♡</div>
+    <div class="prank">بِخ .. إتخض ي حبيبي إتخضضض 😈</div>
+    <p>كنت مستنياك تدخل يا تنح يا كيوت 🖤</p>
+    <p>بس الأول… كلمة السر يا باشا 😌</p>
 
-<section id="home" class="hero">
-  <div class="heart">♡ ✦ ♡</div>
-  <p> A LITTLE SECRET FOR YOU </p>
-  <h1>بوستيكرييي 😚</h1>
-  <p class="sub">في حكايات صغيرة بتفضل كبيرة جوانا… ودي حكايتنا إحنا وبس. 🖤</p>
-
-  <div class="card" id="lock">
-    <h2>🔐 هدية سرية</h2>
-    <p class="sub">فاكر كلمة السر؟ اكتبها وافتح المفاجأة.</p>
     <form id="passwordForm">
-      <input id="password" type="password" placeholder="كلمة السر هنا">
-      <button type="submit">افتح الهدية ♡</button>
+      <input id="password" type="password" placeholder="كلمة السر..." autocomplete="off">
+      <button class="main-btn" type="submit">افتح هديتك 🖤</button>
     </form>
-    <p id="error"></p>
+    <div class="error" id="error"></div>
   </div>
+</div>
 
-  <div id="welcome" class="hidden">
-    <p>أهو دخلت يا تنح يا كيوت 😌🖤</p>
-    <a class="btn" href="#story">نبدأ الحكاية ↓</a>
-  </div>
-</section>
+<div id="site" class="hidden">
+  <header>
+    <div class="logo">POSTIKRI ♡</div>
+    <p class="welcome">أهو دخلت يا تنح يا كيوت 😌🖤</p>
+    <span class="pill">MADE JUST FOR YOU</span>
+  </header>
 
-<main id="content" class="hidden">
+  <nav>
+    <a href="#home">البداية</a>
+    <a href="#story">حكايتنا</a>
+    <a href="#music">أغنيتنا 🎧</a>
+    <a href="#letterSection">رسالتك 💌</a>
+  </nav>
 
-<section id="story">
-  <p class="date">OUR LITTLE TIMELINE</p>
-  <h2>حكايتنا الصغيرة ♡</h2>
-  <p class="sub">كل تاريخ هنا وراه حكاية، حتى لو مش فاكرين كل التفاصيل.</p>
+  <main>
+    <section id="home" class="intro">
+      <div class="big">أجمد وأروع وأفخم حاجة ممكن تشوفها ف حياتك😌</div>
+      <p>كل تاريخ هنا مهم جدا حقيقي بالنسبالي وليك كمان بالعافية ياروحي مش باخد رأيك😘</p>
+      <div class="pill">YOU + ME · OUR LITTLE UNIVERSE</div>
+    </section>
 
-  <div class="timeline">
+    <section id="story">
+      <h2 class="section-title">حكايتنا 🖤</h2>
+      <p class="section-subtitle">كل تاريخ حكاية من حكاياتنا… وكل ذكرى ليها مكانها.</p>
 
-    <article class="memory">
-      <div class="date">سنة 2018 · البداية</div>
-      <h3>🌷 أول مرة اتقابلنا</h3>
-      <p>مش فاكرة اليوم بالتحديد، بس بعض البدايات بتفضل في الذاكرة حتى من غير تاريخ.</p>
-    </article>
+      <div class="timeline">
+        <article class="memory">
+          <div class="memory-date">سنة 2018 · البداية</div>
+          <h3>أول مرة اتقابلنا ♡</h3>
+          <p>بداية حكاية ماكنّاش نعرف وقتها إنها هتفضل ذكرى مميزة كده.</p>
+        </article>
 
-    <article class="memory">
-      <div class="date">6 ديسمبر 2026 · أول كلام</div>
-      <h3>🎀 أول مرة اتكلمنا</h3>
-      <p>ومن هنا بدأت تفاصيل صغيرة تبقى حكاية تخصنا إحنا وبس. 😉</p>
-    </article>
+        <article class="memory">
+          <div class="memory-date">6 / 12 / 2026</div>
+          <h3>أول مرة اتكلمنا 💬</h3>
+          <p>أول كلام بينا… وتفصيلة صغيرة بقت جزء من حكايتنا.</p>
+        </article>
 
-    <article class="memory">
-      <div class="date">30 مارس 2023</div>
-      <div class="hijri">8 رمضان 1444 هـ · الخميس</div>
-      <h3>💗 اليوم اللي ارتبطنا فيه</h3>
-      <p>ذكرى مميزة، واليوم اللي بقى ليه مكان مختلف في حكايتنا.</p>
-    </article>
+        <article class="memory">
+          <div class="memory-date">30 / 3 / 2023 · الخميس</div>
+          <h3>اليوم اللي ارتبطنا فيه 🫶</h3>
+          <p>أول ذكرى مميزة بينا… يوم ليه مكانة خاصة في قلبي.</p>
+          <p style="margin-top:8px;color:#ffacd0">8 / 9 / 1444 هـ</p>
+        </article>
 
-    <article class="memory">
-      <div class="date">8 يناير 2010 · اليوم الاستثنائي</div>
-      <h3>👑 اليوم العالمي للبشرية كلها</h3>
-      <p>أهم يوم في تاريخ البشرية كلها، من ساعة ما بدأت… حسب صاحبة الهدية طبعًا. 😌</p>
-    </article>
+        <article class="memory birthday">
+          <div class="memory-date">8 يناير 2010 🎂</div>
+          <h3>أهم يوم ف تاريخ البشرية كلها 🤩</h3>
+          <p>طبعا معروف ليه😋</p>
+        </article>
+      </div>
+    </section>
 
-  </div>
-</section>
+    <section id="music">
+      <h2 class="section-title">أغنيتنا 🎧</h2>
+      <p class="section-subtitle">شغّلتها مخصوص عشانك… اسمعها وإنت بتتفرج على هديتك ♡</p>
 
-<section id="letter">
-  <p class="date">A LETTER FROM THE HEART</p>
-  <h2>رسالة مخصوص ليك 💌</h2>
-  <p class="sub">فيه جواب صغير مستنيك…</p>
+      <div class="music-card">
+        <div class="music-top">
+          <div class="album-art">♡</div>
+          <div class="track-info">
+            <h3>قلبي دق دقة</h3>
+            <p>صابرين النجيلي</p>
+            <div class="spotify-label">♡ YOUR SPECIAL SONG</div>
+          </div>
+        </div>
 
-  <div class="card">
-    <span class="envelope">✉️</span>
-    <button id="openLetter" type="button">افتح جوابك يا بوستيكري 💌</button>
+        <div class="player-frame" id="playerFrame">
+          <iframe
+            id="songPlayer"
+            title="قلبي دق دقة - صابرين النجيلي"
+            src="about:blank"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
+        </div>
 
-    <div id="letterText" class="letter-body hidden">بوستيكرييي😚
+        <p class="music-note">
+          لو الأغنية ما اشتغلتش لوحدها، دوس تشغيل من المشغّل اللي فوق 🎶
+          هتفضل جوه الهدية ومش هتحتاج تفتح صفحة يوتيوب منفصلة.
+        </p>
+      </div>
+    </section>
+
+    <section id="letterSection" class="letter-box">
+      <h2 class="section-title">رسالة مخصوص ليك 💌</h2>
+      <p class="section-subtitle">في كلام لازم تقراه بنفسك يا أستاذ 😌</p>
+
+      <div class="letter-cover">
+        <div class="heart">💌</div>
+        <p>رسالة صغيرة من قلبي ليك…</p>
+        <button class="main-btn" id="openLetter">افتح الرسالة يا تنح ♡</button>
+      </div>
+
+      <div id="letter" class="hidden">
+        <div class="letter-text">بوستيكرييي😚
 
 أنا حاليا متعصبة منك بصراحه بسبب حركاتك ال مستفزة دي مش تقولي حراكات اي إنتَ عارف نفسك كويس ي باشا😌
 
@@ -364,87 +591,81 @@ footer {
 بحبك بجد يا محمد بلاش تخليني زعلانه منك أو اشيل حاجة جويا منك عشان خاطري بلاش
 
 مش عايزة ابطل احبك بالطريقة دي ومش عايزة انساك 🫶🏼🫂</div>
-  </div>
-</section>
+      </div>
+    </section>
+  </main>
 
-<section id="song">
-  <p class="date">OUR SONG</p>
-  <h2>أغنيتنا 🎶</h2>
-
-  <div class="card">
-    <div class="song-orb">♫</div>
-    <h3>قلبي دق دقة</h3>
-    <p class="sub">الأغنية اللي اخترتيها مخصوص.</p>
-    <a class="btn" href="https://www.youtube.com/watch?v=10QUc8OFGec" target="_blank" rel="noopener noreferrer">شغّل أغنيتنا على YouTube ▶</a>
-    <p class="hijri">هتفتح الأغنية على يوتيوب، والتشغيل يحتاج إنترنت.</p>
-  </div>
-</section>
-
-<section>
-  <div class="card">
-    <div class="heart">✦ ♡ ✦</div>
-    <h2>وخلصت الحكاية؟</h2>
-    <p class="sub">لأ طبعًا… دي مجرد ذكرى جديدة تتحط وسط ذكرياتنا. 🖤</p>
-    <a class="btn secondary" href="#home">ارجع للبداية ↑</a>
-    <button type="button" id="finale">اعمل مفاجأة 🎆</button>
-  </div>
-</section>
-
-</main>
-
-<footer>صُنعت بحب وتفاصيل صغيرة ♡ · Postikri</footer>
+  <footer>
+    معمولة بحب وبشوية شقاوة <span>♡</span><br>
+    A tiny world made just for you.
+  </footer>
+</div>
 
 <script>
-document.getElementById('passwordForm').addEventListener('submit', function(event) {
+const gate = document.getElementById('gate');
+const site = document.getElementById('site');
+const passwordForm = document.getElementById('passwordForm');
+const passwordInput = document.getElementById('password');
+const errorBox = document.getElementById('error');
+const songPlayer = document.getElementById('songPlayer');
+
+function loadSong() {
+  if (songPlayer.src === 'about:blank' || !songPlayer.src.includes('10QUc8OFGec')) {
+    songPlayer.src =
+      'https://www.youtube-nocookie.com/embed/10QUc8OFGec?autoplay=1&playsinline=1&rel=0';
+  }
+}
+
+passwordForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  const value = document.getElementById('password').value;
+  if (passwordInput.value.trim().toLowerCase() === 'postikri') {
+    gate.classList.add('hidden');
+    site.classList.remove('hidden');
 
-  if (value === 'postikri') {
-    document.getElementById('lock').classList.add('hidden');
-    document.getElementById('welcome').classList.remove('hidden');
-    document.getElementById('content').classList.remove('hidden');
-    burstHearts(35);
+    loadSong();
+    burst();
+    setTimeout(burst, 700);
   } else {
-    document.getElementById('error').textContent =
-      'كلمة السر مش صحيحة، جرب تاني يا بوستيكري 💗';
+    errorBox.textContent = 'لأ يا باشا 😂 جرّب كلمة السر تاني.';
+    passwordInput.value = '';
   }
 });
 
 document.getElementById('openLetter').addEventListener('click', function() {
-  const letter = document.getElementById('letterText');
+  const letter = document.getElementById('letter');
   letter.classList.toggle('hidden');
 
-  this.textContent = letter.classList.contains('hidden')
-    ? 'افتح جوابك يا بوستيكري 💌'
-    : 'اقفل الجواب ♡';
-
-  if (!letter.classList.contains('hidden')) burstHearts(25);
+  if (!letter.classList.contains('hidden')) {
+    this.textContent = 'اقفل الرسالة 🖤';
+    burst();
+    setTimeout(function() {
+      letter.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  } else {
+    this.textContent = 'افتح الرسالة يا تنح ♡';
+  }
 });
 
-function burstHearts(count) {
-  const symbols = ['✦', '♡', '✧', '♥', '✨', '🎆'];
+function burst() {
+  const holder = document.getElementById('sparkles');
+  const symbols = ['♡', '💗', '✦', '✨', '💕', '⋆'];
 
-  for (let i = 0; i < count; i++) {
-    const el = document.createElement('span');
-    el.className = 'spark';
-    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+  for (let i = 0; i < 28; i++) {
+    const item = document.createElement('span');
+    item.className = 'spark';
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + '%';
+    item.style.animationDelay = Math.random() * 1.5 + 's';
+    item.style.animationDuration = (3 + Math.random() * 3) + 's';
+    item.style.color = Math.random() > 0.5 ? '#ff8fc4' : '#ffffff';
+    holder.appendChild(item);
 
-    el.style.left = (8 + Math.random() * 84) + 'vw';
-    el.style.top = (25 + Math.random() * 55) + 'vh';
-    el.style.setProperty('--x', (Math.random() * 180 - 90) + 'px');
-    el.style.setProperty('--y', (-70 - Math.random() * 180) + 'px');
-    el.style.animationDelay = (Math.random() * 0.45) + 's';
-
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 2300);
+    setTimeout(function() {
+      item.remove();
+    }, 7000);
   }
 }
-
-document.getElementById('finale').addEventListener('click', function() {
-  burstHearts(60);
-});
 </script>
-
 </body>
-</html>
+          </html>
