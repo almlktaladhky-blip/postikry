@@ -491,7 +491,7 @@ footer span {
         </article>
 
         <article class="memory">
-          <div class="memory-date">6 / 12 / 2026</div>
+          <div class="memory-date">6 / 12 / 2022</div>
           <h3>أول مرة اتكلمنا 💬</h3>
           <p>أول كلام بينا… وتفصيلة صغيرة بقت جزء من حكايتنا.</p>
         </article>
@@ -668,4 +668,4 @@ function burst() {
 }
 </script>
 </body>
-          </html>
+</html>
